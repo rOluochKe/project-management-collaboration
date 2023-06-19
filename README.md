@@ -18,11 +18,11 @@ Follow these steps to set up the project locally:
 
 ## Usage
 
-- Access the application by visiting [URL or running locally on http://localhost:3000/api].
+- Access the application by visiting URL or running locally on `http://localhost:3000/api`.
 
 ## API Documentation
 
-The project provides a RESTful API for interacting with the backend. The API endpoints and their usage are documented using Swagger. You can access the API documentation by visiting [http://localhost:3000/api-docs/].
+The project provides a RESTful API for interacting with the backend. The API endpoints and their usage are documented using Swagger. You can access the API documentation by visiting `http://localhost:3000/api-docs/`.
 
 ## Development
 

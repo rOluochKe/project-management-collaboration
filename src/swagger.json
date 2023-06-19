@@ -3,7 +3,7 @@
   "info": {
     "title": "Project Management and Collaboration API",
     "version": "1.0.0",
-    "description": "API for managing projects, teams, and tasks"
+    "description": "API for managing projects, teams, users, and tasks"
   },
   "servers": [
     {
@@ -333,8 +333,6 @@
         }
       }
     },
-
-
     "/projects": {
       "get": {
         "tags": [
@@ -496,9 +494,6 @@
         }
       }
     },
-
-
-
     "/tasks": {
       "get": {
         "tags": [
@@ -660,16 +655,6 @@
         }
       }
     }
-
-
-
-
-
-
-
-
-
-
   },
   "components": {
     "schemas": {
@@ -710,7 +695,9 @@
           },
           "userIds": {
             "type": "array",
-            "items": { "type": "integer" },
+            "items": {
+              "type": "integer"
+            },
             "description": "ID of users in a team"
           }
         }
@@ -724,7 +711,9 @@
           },
           "userIds": {
             "type": "array",
-            "items": { "type": "integer" },
+            "items": {
+              "type": "integer"
+            },
             "description": "ID of users in a team"
           }
         }
@@ -778,7 +767,9 @@
           },
           "tags": {
             "type": "array",
-            "items": { "type": "string" },
+            "items": {
+              "type": "string"
+            },
             "description": "Task tags"
           },
           "projectId": {
@@ -798,12 +789,16 @@
           },
           "accountableIds": {
             "type": "array",
-            "items": { "type": "integer" },
+            "items": {
+              "type": "integer"
+            },
             "description": "ID of the users acountable for the task"
           },
           "subscriberIds": {
             "type": "array",
-            "items": { "type": "integer" },
+            "items": {
+              "type": "integer"
+            },
             "description": "ID of the users subscribed to the task"
           }
         }
@@ -821,7 +816,9 @@
           },
           "tags": {
             "type": "array",
-            "items": { "type": "string" },
+            "items": {
+              "type": "string"
+            },
             "description": "Task tags"
           },
           "projectId": {
@@ -841,12 +838,16 @@
           },
           "accountableIds": {
             "type": "array",
-            "items": { "type": "integer" },
+            "items": {
+              "type": "integer"
+            },
             "description": "ID of the users acountable for the task"
           },
           "subscriberIds": {
             "type": "array",
-            "items": { "type": "integer" },
+            "items": {
+              "type": "integer"
+            },
             "description": "ID of the users subscribed to the task"
           }
         }
