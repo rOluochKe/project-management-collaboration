@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from "express";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 import { createConnection } from "typeorm";
+import cors from 'cors';
 
 import swaggerApp from "./middleware/swagger";
 
@@ -18,6 +19,7 @@ createConnection()
     app.use(morgan("dev"));
     app.use(bodyParser.json());
     app.use("/", swaggerApp);
+    app.use(cors());
 
     // Routes
     app.use("/api/projects", projectRoutes);
