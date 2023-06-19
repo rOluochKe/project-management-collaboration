@@ -15,7 +15,7 @@ export class User {
   @JoinTable()
   teams!: Team[];
 
-  @OneToMany(() => Task, task => task.owner)
+  @OneToMany(() => Task, task => task.owner, { nullable: true })
   ownedTasks!: Task[];
 
   @ManyToMany(() => Task, task => task.accountables)

@@ -13,7 +13,7 @@ Follow these steps to set up the project locally:
 - Clone the repository: `git clone git@github.com:rOluochKe/project-management-collaboration.git`
 - Navigate to the project directory: `cd project-management-collaboration`
 - Install dependencies: `npm install`
-- Configure the project by setting up database connections in: `ormconfig.json` file.
+- Configure the project by setting up database connections in: `db.ts` file.
 - Start the application: `npm run dev`
 
 ## Usage
@@ -29,7 +29,7 @@ The project provides a RESTful API for interacting with the backend. The API end
 To contribute to the project or make changes, follow these steps:
 
 - Fork the repository.
-- Create a new branch for your feature or bug fix: git checkout -b [branch-name]
-- Make your changes and commit them: git commit -m "Your commit message"
-- Push the changes to your forked repository: git push origin [branch-name]
+- Create a new branch for your feature or bug fix: `git checkout -b [branch-name]`
+- Make your changes and commit them: `git commit -m "Your commit message"`
+- Push the changes to your forked repository: `git push origin [branch-name]`
 - Submit a pull request to the main repository.

@@ -1,11 +1,63 @@
-### Create a new project
-POST http://localhost:3000/api/projects HTTP/1.1
+### Get users
+GET http://localhost:3000/api/users HTTP/1.1
+
+
+### Get single user
+GET http://localhost:3000/api/users/5 HTTP/1.1
+
+
+### Create a new user
+POST http://localhost:3000/api/users HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Project 2",
-  "description": "Description of Project 2"
+  "name": "John J North"
 }
+
+
+### Update user
+PUT http://localhost:3000/api/users/5 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Mary J. Smith"
+}
+
+
+### Delete user
+DELETE http://localhost:3000/api/users/5 HTTP/1.1
+
+
+### Get teams
+GET http://localhost:3000/api/teams HTTP/1.1
+
+
+### Get single team
+GET http://localhost:3000/api/teams/3 HTTP/1.1
+
+
+### Create a new team
+POST http://localhost:3000/api/teams HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Team 2",
+  "userIds": [2]
+}
+
+
+### Update exising team
+PUT http://localhost:3000/api/teams/3 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Team 3 up",
+  "userIds": [4, 5]
+}
+
+
+### Delete team
+DELETE http://localhost:3000/api/teams/3 HTTP/1.1
 
 
 ### Get projects
@@ -16,13 +68,23 @@ GET http://localhost:3000/api/projects HTTP/1.1
 GET http://localhost:3000/api/projects/3 HTTP/1.1
 
 
+### Create a new project
+POST http://localhost:3000/api/projects HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Project 2",
+  "description": "Description of Project 2"
+}
+
+
 ### Update existing project
 PUT http://localhost:3000/api/projects/3 HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Project 3 Updated",
-  "description": "Description of Project 3 update"
+  "name": "Project 1 up",
+  "description": "Description of Project 1"
 }
 
 
@@ -44,93 +106,31 @@ POST http://localhost:3000/api/tasks HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Task 2",
-  "stage": "in-progress",
+  "name": "Task 3",
+  "stage": "backlog",
   "tags": ["tag", "tag"],
-  "projectId": 2,
+  "projectId": 1,
   "teamId": 2,
-  "ownerId": 1,
-  "accountableIds": [3, 4],
-  "subscriberIds": [3, 4]
+  "ownerId": 0,
+  "accountableIds": [1],
+  "subscriberIds": [2]
 }
 
 
 ### Update task
-PUT http://localhost:3000/api/tasks/5 HTTP/1.1
+PUT http://localhost:3000/api/tasks/3 HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Task 5",
+  "name": "Task 3",
   "stage": "backlog",
   "tags": ["tag10", "task11"],
   "projectId": 1,
   "teamId": 1,
   "ownerId": 1,
-  "accountableIds": [1, 2],
-  "subscriberIds": [1, 2]
+  "accountableIds": [1],
+  "subscriberIds": [2]
 }
 
 ### Delete task
 DELETE http://localhost:3000/api/tasks/5 HTTP/1.1
-
-
-### Create a new user
-POST http://localhost:3000/api/users HTTP/1.1
-Content-Type: application/json
-
-{
-  "name": "Jane Doe"
-}
-
-
-### Get users
-GET http://localhost:3000/api/users HTTP/1.1
-
-
-### Get single user
-GET http://localhost:3000/api/users/1 HTTP/1.1
-
-
-### Update user
-PUT http://localhost:3000/api/users/3 HTTP/1.1
-Content-Type: application/json
-
-{
-  "name": "Lucy J. Smith"
-}
-
-
-### Delete user
-DELETE http://localhost:3000/api/users/3 HTTP/1.1
-
-
-### Create a new team
-POST http://localhost:3000/api/teams HTTP/1.1
-Content-Type: application/json
-
-{
-  "name": "Team 2",
-  "userIds": [3, 4]
-}
-
-
-### Get teams
-GET http://localhost:3000/api/teams HTTP/1.1
-
-
-### Get single team
-GET http://localhost:3000/api/teams/1 HTTP/1.1
-
-
-### Update exising team
-PUT http://localhost:3000/api/teams/2 HTTP/1.1
-Content-Type: application/json
-
-{
-  "name": "Team 2",
-  "userIds": [4, 5]
-}
-
-
-### Delete team
-DELETE http://localhost:3000/api/teams/3 HTTP/1.1

@@ -63,13 +63,21 @@ router.put("/:id", async (req: Request, res: Response) => {
     const accountables = await userRepository.findByIds(accountableIds);
     const subscribers = await userRepository.findByIds(subscriberIds);
 
-    if (!project || !team || !owner || !accountables || !subscribers) {
+    if (!project || !accountables || !subscribers) {
       return res.status(404).json({ message: 'Associated entities not found' });
     }
 
+    if (team) {
+      task.team = team;
+      task.owner = null; // Clear the owner if a team is provided
+    } else if (owner) {
+      task.owner = owner;
+      task.team = null; // Clear the team if an owner is provided
+    } else {
+      return res.status(400).json({ message: 'Invalid task ownership' });
+    }
+
     task.project = project;
-    task.team = team;
-    task.owner = owner;
     task.accountables = accountables;
     task.subscribers = subscribers;
 
@@ -84,32 +92,6 @@ router.put("/:id", async (req: Request, res: Response) => {
 
 // POST /tasks
 router.post("/", async (req: Request, res: Response) => {
-  // try {
-  //   const { name, stage, tags, projectId, teamId, ownerId, accountableIds, subscriberIds } = req.body;
-
-  //   const taskRepository = getRepository(Task);
-  //   const userRepository = getRepository(User);
-
-  //   const task = new Task();
-  //   task.name = name;
-  //   task.stage = stage;
-  //   task.tags = tags;
-  //   task.project = projectId;
-  //   task.team = teamId;
-  //   task.owner = ownerId;
-  //   task.accountables = accountableIds;
-  //   task.subscribers = subscriberIds;
-
-  //   const createdTask = await taskRepository.save(task);
-  //   const accountables = await userRepository.findByIds(accountableIds);
-  //   const subscribers = await userRepository.findByIds(subscriberIds);
-
-  //   return res.status(201).json(createdTask);
-  // } catch (error) {
-  //   console.error(error);
-  //   return res.status(500).json({ message: "Failed to create task." });
-  // }
-
   try {
     const { name, stage, tags, projectId, teamId, ownerId, accountableIds, subscriberIds } = req.body;
 
@@ -131,13 +113,21 @@ router.post("/", async (req: Request, res: Response) => {
     const accountables = await userRepository.findByIds(accountableIds);
     const subscribers = await userRepository.findByIds(subscriberIds);
 
-    if (!project || !team || !owner || !accountables || !subscribers) {
+    if (!project || !accountables || !subscribers) {
       return res.status(404).json({ message: 'Associated entities not found' });
     }
 
+    if (team) {
+      task.team = team;
+      task.owner = null; // Clear the owner if a team is provided
+    } else if (owner) {
+      task.owner = owner;
+      task.team = null; // Clear the team if an owner is provided
+    } else {
+      return res.status(400).json({ message: 'Invalid task ownership' });
+    }
+
     task.project = project;
-    task.team = team;
-    task.owner = owner;
     task.accountables = accountables;
     task.subscribers = subscribers;
 
